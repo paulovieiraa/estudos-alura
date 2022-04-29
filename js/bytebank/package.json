@@ -1,0 +1,20 @@
+{
+  "name": "bytebank",
+  "version": "1.0.0",
+  "description": "Projeto - Orientacao Objeto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulovieiraa/estudos-alura.git"
+  },
+  "author": "Paulo Vieira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulovieiraa/estudos-alura/issues"
+  },
+  "homepage": "https://github.com/paulovieiraa/estudos-alura#readme",
+  "type": "module"
+}
