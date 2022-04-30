@@ -1,15 +1,16 @@
-import { Cliente } from "./Cliente.js";
+//Classe abstrata
+export class Conta {
 
-export class ContaCorrente {
+    constructor(saldoInicial, cliente, agencia) {
 
-    agencia;
+        if (this.constructor == Conta) {
+            throw new Error("Classe interna, não faz sentido ser instanciada de maneira aleatoria.");
+        }
 
-    // Existe uma proposta para o objeto ser privado, colocando o '#'. Porem ainda nao é obrigatorio
-    // Por convenção, fica definido que o objeto para ser privado, basta inserir o '_' antes do nome
-    // Exemplo.: _saldo;
-    // O objeto é publico, mas a convenção o determina como "privado".
-    _saldo = 0;
-    _cliente;
+        this._saldo = saldoInicial;
+        this._cliente = cliente;
+        this._agencia = agencia;
+    }
 
     set cliente(novoCliente) {
         if (novoCliente instanceof Cliente) {
@@ -21,15 +22,22 @@ export class ContaCorrente {
         return this._cliente;
     }
 
-    get saldo(){
+    get saldo() {
         return this._saldo;
     }
 
+    // metodo abstrato
     sacar(valor) {
-        if (this._saldo >= valor) {
-            this._saldo -= valor;
-            return valor;
+        throw new Error("Metodo abstrato");
+    }
+
+    _sacar(valor, taxa) {
+        const valorSacado = taxa * valor;
+        if (this._saldo >= valorSacado) {
+            this._saldo -= valorSacado;
+            return valorSacado;
         }
+        return 0;
     }
 
     depositar(valor) {
